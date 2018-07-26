@@ -1,0 +1,35 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %title Bootstrap Theme Company Page
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %link{:href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", :rel => "stylesheet"}/
+    %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"}
+    %script{:src => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"}
+  %body
+    %br/
+    .container
+      .row
+        %br/
+        %p#notice= notice
+        %h1 Listing Companies
+        %table.table.table-bordered.table-striped
+          %thead
+            %tr
+              %th Name
+              %th Id
+              %th Frequency
+              %th Depth
+              %th Last Updated 
+              %th TimeStamp
+              %th{:colspan => "1"} Actions
+          %tbody
+            - 1.upto(200).each do |i|
+              %tr
+                %td= @http_party_json['projects'][i]['name']
+                %td= @http_party_json['projects'][i]['id']
+                %td= @http_party_json['projects'][i]['frequency']
+                %td= @http_party_json['projects'][i]['depth']
+                %td= @http_party_json['projects'][i]['last_updated']
+                %td= @http_party_json['projects'][i]['timestamp']
